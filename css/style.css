@@ -16,7 +16,8 @@ kbd:not(:has(kbd)) {
 }
 
 /* 文章中のcodeタグは色を変える。 */
-p > code {
+p > code,
+ul code {
   color: rgb(184, 45, 45);
 }
 
@@ -49,4 +50,9 @@ p > code {
 .note::before {
   content: "Note: ";
   font-weight: bold;
+}
+
+/* 変数名 */
+.variable-list span::before {
+  content: "・・・";
 }

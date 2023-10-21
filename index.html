@@ -245,6 +245,53 @@
           <figcaption><span class="figure">図2-6</span> チョイスの例</figcaption>
         </figure>
       </section>
+      <section id="variable">
+        <h3>3-4. 変数</h3>
+        <p>現在の時刻やファイル名など時と場所で変わるものは変数で定義されています。</p>
+        <p>変数の構文<code>$変数名</code>もしくは<code>${変数名:デフォルト文字列}</code>のように記載します。<br>
+          二つ目の構文は変数が設定されていない場合デフォルト文字列が挿入されます。<br>
+          変数が定義されていない場合変数名が挿入され、プレースホルダーに変換されます。
+        </p>
+        <p>現在定義されている変数の一覧を記載します。</p>
+        <ul class="variable-list">
+          <li><code>TM_SELECTED_TEXT</code><span>現在選択されているテキスト</span></li>
+          <li><code>TM_CURRENT_LINE</code><span>現在の行の内容</span></li>
+          <li><code>TM_CURRENT_WORD</code><span>カーソルの下の単語の内容</span></li>
+          <li><code>TM_LINE_INDEX</code><span>0から始まる行番号</span></li>
+          <li><code>TM_LINE_NUMBER</code><span>1から始まる行番号</span></li>
+          <li><code>TM_FILENAME</code><span>現在のドキュメントのファイル名</span></li>
+          <li><code>TM_FILENAME_BASE</code><span>現在のドキュメントの拡張子を除いたファイル名</span></li>
+          <li><code>TM_DIRECTORY</code><span>現在のドキュメントのディレクトリ</span></li>
+          <li><code>TM_FILEPATH</code><span>現在のドキュメントの完全なファイルパス</span></li>
+          <li><code>RELATIVE_FILEPATH</code><span>現在のドキュメントのVSCodeで現在開いているトップフォルダもしくはワークスペースに対する相対パス</span></li>
+          <li><code>CLIPBOARD</code><span>クリップボードの内容</span></li>
+          <li><code>WORKSPACE_NAME</code><span>開いているワークスペースまたはフォルダーの名前</span></li>
+          <li><code>WORKSPACE_FOLDER</code><span>開いているワークスペースまたはフォルダーのパス</span></li>
+          <li><code>CURSOR_INDEX</code><span>マルチカーソルにおける0から始まるカーソル番号</span></li>
+          <li><code>CURSOR_NUMBER</code><span>マルチカーソルにおける1から始まるカーソル番号</span></li>
+          <li><code>CURRENT_YEAR</code><span>今年の4桁の数字(例: 2023)</span></li>
+          <li><code>CURRENT_YEAR_SHORT</code><span>今年の霜2桁の数字(例: 23)</span></li>
+          <li><code>CURRENT_MONTH</code><span>今月の完全な名前(例: July)</span></li>
+          <li><code>CURRENT_MONTH_NAME</code><span>今月の短縮名(例: Jul)</span></li>
+          <li><code>CURRENT_MONTH_NAME_SHORT</code><span>今月の2桁の数字(例: 08)</span></li>
+          <li><code>CURRENT_DATE</code><span>今日の日付の2桁の数字(例: 31)</span></li>
+          <li><code>CURRENT_DAY_NAME</code><span>曜日の名前(例: Monday)</span></li>
+          <li><code>CURRENT_DAY_NAME_SHORT</code><span>曜日の短縮名(例: Mon)</span></li>
+          <li><code>CURRENT_HOUR</code><span>24時間形式の現在の時刻</span></li>
+          <li><code>CURRENT_MINUTE</code><span>現在の分を2桁で表示します。</span></li>
+          <li><code>CURRENT_SECOND</code><span>現在の秒を2桁で表示します。</span></li>
+          <li><code>CURRENT_SECONDS_UNIX</code><span>Unixエポックからの秒数</span></li>
+          <li>
+            <code>CURRENT_TIMEZONE_OFFSET</code><span>現在のUTCタイムゾーンオフセット(<code>+HH:MM</code>もしくは<code>-HH:MM</code>)</span>
+          </li>
+          <li><code>RANDOM</code><span>6桁の10進数のランダムな値(例: 123456)</span></li>
+          <li><code>RANDOM_HEX</code><span>6桁の16進数のランダムな値(例: F5E4CC)</span></li>
+          <li><code>UUID</code><span>バージョン4 UUID</span></li>
+          <li><code>BLOCK_COMMENT_START</code><span>HTMLの場合<code>&lt;!--</code>, CSSの場合<code>/*</code></span></li>
+          <li><code>BLOCK_COMMENT_END</code><span>HTMLの場合<code>--&gt;</code>, CSSの場合<code>*/</code></span></li>
+          <li><code>LINE_COMMENT</code><span>javascriptの場合<code>//</code></span></li>
+        </ul>
+      </section>
     </section>
   </article>
 </body>
