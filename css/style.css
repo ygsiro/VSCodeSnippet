@@ -1,0 +1,27 @@
+@charset "UTF-8";
+html {
+  font-size: 12px;
+}
+
+/* キーボード入力を強調 */
+kbd:not(:has(kbd)) {
+  border: 1px solid #333;
+  padding-inline: 2px;
+  border-radius: 2px;
+}
+
+/* 文章中のcodeタグは色を変える。 */
+p > code {
+  color: rgb(184, 45, 45);
+}
+
+/* 図1-1などを太字にして[]で囲む */
+.figure {
+  font-weight: bold;
+}
+.figure::before {
+  content: "[";
+}
+.figure::after {
+  content: "]";
+}

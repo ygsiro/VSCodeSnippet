@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VSCode スニペット</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- and it's easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+  <script>hljs.highlightAll();</script>
+</head>
+
+<body>
+  <article id="vscode-snippet">
+    <h1>VSCode スニペット</h1>
+    <p>スニペットとはfor文やif文など繰り返しのコードパターンを簡単に入力できるようにするテンプレートです。</p>
+
+    <p>VSCodeではJavascript, typescript, pythonなど多くの言語用に標準でいくつかスニペットが組み込まれており、
+      さらに拡張機能を入れることでもスニペットを追加することができます。
+      スニペットはIntelliSenseに他の候補と混在して表示される他、コマンドパレットからスニペットの挿入コマンドを実行すると、
+      現在開いているファイルの言語に登録されているスニペットの一覧が表示されます。
+      設定でタブ補完を有効（<code>"editor.tabCompletion": "on"</code>）にしているとタブ補完のサポートも受ける事も可能です。<br>
+      タブ補完はデフォルトでonになっています。
+      スニペットのプレフィックス（トリガーテキスト）を入力し、<kbd>Tab</kbd>キーを押してスニペットを挿入します。</p>
+    <figure>
+      <img src="img/devlop-snippet.png" alt="スニペットの展開" width="400px">
+      <figcaption><span class="figure">図0-1</span> javascriptファイルでforスニペットを展開してみる</figcaption>
+    </figure>
+    <p>
+      便利なスニペットですが実はユーザー定義のスニペットを作成することも可能です。ユーザー定義のスニペットを作成するにはスニペットファイルにスニペットを記載していく必要があるのですが、スニペットファイルには大きく分けて以下の３種類があります。
+    </p>
+    <ol>
+      <li>現在のフォルダだけで使用するスニペットを記載するスニペットファイル</li>
+      <li>特定の言語だけで使用するスニペットを記載するスニペットファイル</li>
+      <li>全体にわたって使用したいスニペットを記載するスニペットファイル</li>
+    </ol>
+    <p>
+      2と3に関しては現在のフォルダだけでなく全体に影響が出るので、最初は1の現在のフォルダだけで使用できるスニペットファイルで練習するのがおすすめです。
+      現在のプロジェクト以外でも使えそうなスニペットが出来たら2と3に記載してもいいと思います。
+    </p>
+    <section>
+      <h2>1. スニペットファイルの作成</h2>
+      <p>ユーザー定義のスニペットを作成するにはスニペットファイルがまずは必要です。</p>
+      <p>スニペットファイルを作成するにはVSCodeの左下の歯車アイコンからユーザースニペットを選択してください。
+        選択すると以下のようなダイアログが出てきます。</p>
+      <figure>
+        <img src="img/create-snippet-file.png" alt="スニペットファイルの作成" width="400px">
+        <figcaption><span class="figure">図1-1</span> 作成するスニペットファイルの種類を選択する</figcaption>
+      </figure>
+      <p>新しいグローバルスニペット ファイル...を選択した場合、全体にわたって使用したいスニペットを記述するスニペットファイルが開かれます。<br>
+        '現在開いているフォルダ名'の新しいスニペットファイル...を選択した場合、現在のフォルダのみで使用するスニペットを記述するスニペットファイルが開かれます。<br>
+        上記二つのスニペットファイルは作成する際にファイル名の入力を求められますが、できるだけわかりやすい名前をつけましょう。</p>
+      <figure><img src="img/name-snippet-file.png" alt="ファイル名の入力" width="400px">
+        <figcaption><span class="figure">図1-2</span> ファイル名を入力。わかりやすい名前をつけよう。</figcaption>
+      </figure>
+      <p>
+        その下に記載の言語を選択するとその言語専用のスニペットを記述するJSonファイルが開かれます。</p>
+      <hr>
+      <p>
+        一度スニペットファイルを作成していると上段に作成済みのスニペットファイルが選択できるようになっているので、新たにスニペットを追加したい場合は作成済みのスニペットファイルを選択しましょう。
+      <figure>
+        <img src="img/created-snippet-file.png" alt="作成済のスニペットファイル" width="400px">
+        <figcaption><span class="figure">図1-3</span> 作成済みのスニペットファイルは上段に表示される。</figcaption>
+      </figure>
+      </p>
+    </section>
+    <section>
+      <h2>2. スニペットファイルの構成</h2>
+      <p>現在開いているフォルダ名のスニペットファイルを新規で作成した場合は下記のような形で英語の説明とサンプルがコメントで記載されています。</p>
+      <figure>
+        <pre><code class="json">{
+// Place your VSCode ワークスペース snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+// Placeholders with the same ids are connected.
+// Example:
+// "Print to console": {
+// "scope": "javascript,typescript",
+// "prefix": "log",
+// "body": [
+// "console.log('$1');",
+// "$2"
+// ],
+// "description": "Log output to console"
+// }
+}</code></pre>
+        <figcaption><span class="figure">図2-1</span> スニペットファイルを新規作成</figcaption>
+      </figure>
+      <p>javascriptとtypescript用のスニペットのサンプルがコメントアウトされて記載されています。</p>
+      <p><code>// "Print to console": {</code>から<code>// }</code>の行までを選択し、
+        <kbd><kbd>Ctrl</kbd> + <kbd>/</kbd></kbd>(Macの場合は<kbd><kbd>Command</kbd> + <kbd>/</kbd></kbd>)でコメントを解除します。
+      </p>
+      <figure>
+        <pre><code class="json">{
+// コメントは省略
+ "Print to console": {
+ "scope": "javascript,typescript",
+ "prefix": "log",
+ "body": [
+ "console.log('$1');",
+ "$2"
+ ],
+ "description": "Log output to console"
+ }
+}</code></pre>
+        <figcaption><span class="figure">図2-2</span> コメントアウトを解除</figcaption>
+      </figure>
+      <p>
+        これでユーザー定義のスニペット<code>"Print to console"</code>が作成できましたが、
+        <code>"prefix"</code>欄のトリガーテキスト<code>"log"</code>はVSCode標準のスニペットにすでに登録されてるため<code>"log"</code>から<code>"user-log"</code>と書き換えましょう。
+      </p>
+      <figure>
+        <pre><code>  "prefix": "user-log", // "log"から"user-log"に書き換える</code></pre>
+        <figcaption><span class="figure">図2-3</span> 重複するとわかりづらいので重複しないように書き換える</figcaption>
+      </figure>
+      <p>現在のフォルダでjavascriptファイルを作成しuser-logと入力すると展開直前に以下のように表示されます。</p>
+      <figure>
+        <img src="img/develop.png" alt="展開例" width="400px">
+        <figcaption><span class="figure">図2-4</span> 該当位置</figcaption>
+      </figure>
+      <p>トリガーテキスト<code>"user-log"</code>の横にスニペット名<code>"Print to
+        console"</code>、さらにその横に<code>"description"</code>欄に記載した説明、<code>"body"</code>欄の実際に展開した時のプレビューが表示されます。</p>
+      <hr>
+    </section>
+  </article>
+</body>
+
+
+</html>

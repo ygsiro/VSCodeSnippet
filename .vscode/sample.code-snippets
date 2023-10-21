@@ -1,0 +1,21 @@
+{
+	"Print to console": {
+		"scope": "javascript,typescript",
+		"prefix": "user-log",
+		"body": [
+			"console.log('$1');",
+			"$2"
+		],
+		"description": "Log output to console"
+	},
+	"figure template": {
+		"scope": "html",
+		"prefix": "fig",
+		"body": [
+			"<figure>",
+			"  $0",
+			"  <figcaption><span class=\"figure\">図${1:1-1}</span> $2</figcaption>",
+			"</figure>"
+		]
+	}
+}
