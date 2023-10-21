@@ -114,10 +114,21 @@
       </figure>
       <p>
         これでユーザー定義のスニペット<code>"Print to console"</code>が作成できましたが、
-        <code>"prefix"</code>欄のトリガーテキスト<code>"log"</code>はVSCode標準のスニペットにすでに登録されてるため<code>"log"</code>から<code>"user-log"</code>と書き換えましょう。
+        <code>"prefix"</code>欄のトリガーテキスト<code>"log"</code>はJavascript,typescriptともにVSCode標準のスニペットとしてすでに登録されてるため<code>"log"</code>から<code>"user-log"</code>と書き換えましょう。
       </p>
       <figure>
-        <pre><code>  "prefix": "user-log", // "log"から"user-log"に書き換える</code></pre>
+        <pre><code class="json">{
+// コメントは省略
+ "Print to console": {
+ "scope": "javascript,typescript",
+ "prefix": "user-log", // "log"から"user-log"に書き換える
+ "body": [
+ "console.log('$1');",
+ "$2"
+ ],
+ "description": "Log output to console"
+ }
+}</code></pre>
         <figcaption><span class="figure">図2-3</span> 重複するとわかりづらいので重複しないように書き換える</figcaption>
       </figure>
       <p>現在のフォルダでjavascriptファイルを作成しuser-logと入力すると展開直前に以下のように表示されます。</p>
@@ -128,6 +139,12 @@
       <p>トリガーテキスト<code>"user-log"</code>の横にスニペット名<code>"Print to
         console"</code>、さらにその横に<code>"description"</code>欄に記載した説明、<code>"body"</code>欄の実際に展開した時のプレビューが表示されます。</p>
       <hr>
+      <section>
+        <h3>2-1. スニペット名</h3>
+        <p><b>[図2-3]</b>に記載の<code>"Print to console"</code>がスニペット名となります。<br>
+          トリガーテキストの横に短く表示されるのでスニペットがどんなものか短くわかりやすく書きましょう<br>
+          スニペットファイルの中で一意の値になる必要があります。</p>
+      </section>
     </section>
   </article>
 </body>
