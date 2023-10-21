@@ -230,6 +230,21 @@
           <b>図2-5</b>でも<code>"&lt;html lang=\"${1:ja}\"&gt;",</code>で使われています。
         </p>
       </section>
+      <section id="choice">
+        <h3>3-3. チョイス</h3>
+        <p>チョイスを使用した場合、候補の中から選ぶことが可能です。
+          構文は<code>${N|選択肢1,選択肢2,...選択肢N|}</code>のように記載します。
+        </p>
+        <figure>
+          <pre><code class="json">"variable": {
+  "prefix": "var",
+  "scope": "javascript",
+  "body": "${1|const,let|} ${2:var} = ${0: element};"
+}</code></pre>
+          <img src="img/choice.png" alt="choice" width="162px" height="64px">
+          <figcaption><span class="figure">図2-6</span> チョイスの例</figcaption>
+        </figure>
+      </section>
     </section>
   </article>
 </body>
