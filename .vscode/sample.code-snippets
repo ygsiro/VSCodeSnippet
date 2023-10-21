@@ -17,5 +17,23 @@
 			"  <figcaption><span class=\"figure\">図${1:1-1}</span> $2</figcaption>",
 			"</figure>"
 		]
+	},
+	"HTML Template": {
+		"scope": "html",
+		"body": [
+			"<!DOCTYPE html>",
+			"<html lang=\"${1:ja}\">",
+			"<head>",
+			"  <meta charset=\"UTF-8\">",
+			"  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+			"  <title>${2:title}</title>",
+			"</head>",
+			"<body>",
+			"$0",
+			"</body>",
+			"</html>",
+		],
+		"isFileTemplate": true,
+		"description": "HTMLファイルの雛形の例。"
 	}
 }

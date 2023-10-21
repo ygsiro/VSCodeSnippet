@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 
-  <!-- and it's easy to individually load additional languages -->
+  <!-- and it"s easy to individually load additional languages -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
 
   <script>hljs.highlightAll();</script>
@@ -60,7 +60,7 @@
         <figcaption><span class="figure">図1-1</span> 作成するスニペットファイルの種類を選択する</figcaption>
       </figure>
       <p>新しいグローバルスニペット ファイル...を選択した場合、全体にわたって使用したいスニペットを記述するスニペットファイルが開かれます。<br>
-        '現在開いているフォルダ名'の新しいスニペットファイル...を選択した場合、現在のフォルダのみで使用するスニペットを記述するスニペットファイルが開かれます。<br>
+        "現在開いているフォルダ名"の新しいスニペットファイル...を選択した場合、現在のフォルダのみで使用するスニペットを記述するスニペットファイルが開かれます。<br>
         上記二つのスニペットファイルは作成する際にファイル名の入力を求められますが、できるだけわかりやすい名前をつけましょう。</p>
       <figure><img src="img/name-snippet-file.png" alt="ファイル名の入力" width="400px" height="42px">
         <figcaption><span class="figure">図1-2</span> ファイル名を入力。わかりやすい名前をつけよう。</figcaption>
@@ -92,7 +92,7 @@
 // "scope": "javascript,typescript",
 // "prefix": "log",
 // "body": [
-// "console.log('$1');",
+// "console.log("$1");",
 // "$2"
 // ],
 // "description": "Log output to console"
@@ -111,7 +111,7 @@
  "scope": "javascript,typescript",
  "prefix": "log",
  "body": [
- "console.log('$1');",
+ "console.log("$1");",
  "$2"
  ],
  "description": "Log output to console"
@@ -130,7 +130,7 @@
  "scope": "javascript,typescript",
  "prefix": "user-log", // "log"から"user-log"に書き換える
  "body": [
- "console.log('$1');",
+ "console.log("$1");",
  "$2"
  ],
  "description": "Log output to console"
@@ -174,6 +174,39 @@
         <h3>2-4. 説明文</h3>
         <p><code>"description"</code>欄にスニペット名で説明しきれなかったスニペットの詳細な説明を記載します。</p>
         <p>この項目はオプションです。不要な場合は記載しなくても問題ありません。</p>
+      </section>
+      <section>
+        <h3>2-4. ファイルテンプレート</h3>
+        <p>サンプルに出てこなかった項目として<code>"isFileTemplate"</code>という項目があります。</p>
+        <p>この値を<code>true</code>にした場合、スニペットがファイルテンプレートとなります。</p>
+        <p>ファイルテンプレートになった場合、コマンドパレットからスニペットをファイルで満たすという項目にそのスニペットが登録されます。</p>
+        <p>コマンドを実行してスニペットを挿入すると、現在のファイルの中身がスニペットの内容になります。<br>
+          htmlなど雛形がある程度決まっているような場合に使うといいでしょう。</p>
+        <p class="note">注意点としてすでに何かファイルに記載していた場合、記載していた内容は全て消えます。<br>
+          この項目を<code>true</code>にする場合はうっかり呼び出さないように<code>"prefix"</code>欄は記載しないほうがいいでしょう。</p>
+        <figure>
+          <pre><code class="json">{
+"HTML Template": {
+  "scope": "html",
+  "body": [
+    "&lt;!DOCTYPE html&gt;",
+    "&lt;html lang=\"${1:ja}\"&gt;",
+    "&lt;head&gt;",
+    "  &lt;meta charset=\"UTF-8\"&gt;",
+    "  &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;",
+    "  &lt;title&gt;${2:title}&lt;/title&gt;",
+    "&lt;/head&gt;",
+    "&lt;body&gt;",
+    "$0",
+    "&lt;/body&gt;",
+    "&lt;/html&gt;",
+  ],
+  "isFileTemplate": true, // このスニペットはファイルテンプレートです
+  "description": "HTMLファイルの雛形の例。"
+}
+}</code></pre>
+          <figcaption><span class="figure">図2-5</span> HTMLの雛形のスニペットの例</figcaption>
+        </figure>
       </section>
     </section>
   </article>

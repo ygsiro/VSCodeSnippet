@@ -43,3 +43,8 @@ p > code {
   list-style: none;
   padding-left: 0;
 }
+
+.note::before {
+  content: "Note: ";
+  font-weight: bold;
+}
