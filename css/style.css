@@ -44,6 +44,8 @@ p > code {
   padding-left: 0;
 }
 
+/* 備考欄 */
+
 .note::before {
   content: "Note: ";
   font-weight: bold;
