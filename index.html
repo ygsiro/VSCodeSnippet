@@ -292,6 +292,48 @@
           <li><code>LINE_COMMENT</code><span>javascriptの場合<code>//</code></span></li>
         </ul>
       </section>
+      <section id="regex">
+        <h3>3-5. 正規表現</h3>
+        <p>変数に対して正規表現で変換することが可能です。またプレースホルダーも変数の対象です。</p>
+        <p>その場合の構文は<code>${変数/正規表現/置換後のテキスト/正規表現オプション}</code>となります。</p>
+        <p>正規表現の置換に関してはJavascriptの正規表現を参照願います。</p>
+        <p>置換後のテキストで通常<code>$1</code>と書く部分に対して、独自機能として大文字化などのオプションがあります。</p>
+        <section>
+          <h4>3-5-1. 変換の例</h4>
+          <table>
+            <caption>ファイル名「<code>example-123.456-TEST.js</code>」に対して正規表現を使用したサンプルです。</caption>
+            <thead>
+              <tr>
+                <th>例</th>
+                <th>出力</th>
+                <th>説明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>"${TM_FILENAME/[\\.]/_/}"</code></td>
+                <td><code>example-123_456-TEST.js</code></td>
+                <td>最初に出現した<code>.</code>を<code>_</code>に変換します</td>
+              </tr>
+              <tr>
+                <td><code>"${TM_FILENAME/[\\.]/_/g}"</code></td>
+                <td><code>example-123_456-TEST_js</code></td>
+                <td>出現した<code>.</code>を全て<code>_</code>に変換します</td>
+              </tr>
+              <tr>
+                <td><code>"${TM_FILENAME/(.*)/${1:/upcase}/}"</code></td>
+                <td><code>EXAMPLE-123.456-TEST.JS</code></td>
+                <td>全て大文字に変換します</td>
+              </tr>
+              <tr>
+                <td><code>"${TM_FILENAME/[^0-9^a-z]//gi}"</code></td>
+                <td><code>example123456TESTjs</code></td>
+                <td>英数字以外の文字を削除する。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
     </section>
   </article>
 </body>

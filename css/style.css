@@ -17,7 +17,8 @@ kbd:not(:has(kbd)) {
 
 /* 文章中のcodeタグは色を変える。 */
 p > code,
-ul code {
+ul code,
+table code {
   color: rgb(184, 45, 45);
 }
 
