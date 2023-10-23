@@ -379,14 +379,18 @@ else ::= text</code></pre>
         <section>
           <h4>3-6-3. /capitalize</h4>
           <p>マッチした範囲をキャピタライズ形式に変換する。</p>
+          <p class="note">動作確認したら最初の一文字を大文字に変換だけしかしていない。</p>
         </section>
         <section>
           <h4>3-6-4. /camelcase</h4>
           <p>マッチした範囲をキャメルケース形式に変換する。</p>
+          <p class="note"><code>all-user text.txt</code>を<code>allUserTextTxt</code>のように変換する。</p>
+          <p class="note">全て大文字の文字をキャメルケースにした場合、最初の一文字だけ小文字に変換する。</p>
         </section>
         <section>
           <h4>3-6-5. /pascalcase</h4>
           <p>マッチした範囲をパスカルケース形式に変換する。</p>
+          <p class="note"><code>all-user text.txt</code>を<code>AllUserTextTxt</code>のように変換する。</p>
         </section>
         <section>
           <h4>3-6-6. if</h4>
