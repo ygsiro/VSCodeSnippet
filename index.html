@@ -367,6 +367,49 @@ else ::= text</code></pre>
           <figcaption><span class="figure">図3-1</span> EBNF記法</figcaption>
         </figure>
       </section>
+      <section id="keybinding">
+        <h3>4. ショートカットキー</h3>
+        <p>スニペットはショートカットから呼び出す方法もあります。
+          キーボードショートカットキーの設定ファイルを開き、<code>keybindings.json</code>ファイルに以下のように追加します。</p>
+        <figure>
+          <pre><code class="json">{
+  "key": "cmd+k 1", // ショートカットキー
+  "command": "editor.action.insertSnippet", // スニペットを挿入するコマンド
+  // editorTextFocusは必須、editorLangIdは言語を指定する場合
+  "when": "editorTextFocus && editorLangId == html", 
+  "args": {
+    //選択したテキストをタグで囲む
+    //属性が続いて書きやすいように開始タグの末にカーソルが移動するようにする。
+    "snippet": "&lt;${1:span}$0&gt;$TM_SELECTED_TEXT&lt;/$1&gt;"
+  }
+}</code></pre>
+          <figcaption><span class="figure">図4-1</span> 直接スニペットを記載する</figcaption>
+        </figure>
+        <p>言語専用のスニペットファイルに記載したスニペットを呼び出す方法もあります。</p>
+        <figure>
+          <pre><code class="json">{
+  "key": "cmd+k 2", // ショートカットキー
+  "command": "editor.action.insertSnippet", // スニペットを挿入するコマンド
+  "when": "editorTextFocus",
+  "args": {
+    "langId": "cpp",
+    "name": "include-guard"
+  }
+  //参考: cpp.jsonのinclude-guardスニペット
+  //"include-guard": { // name欄にはここの値を指定
+  //"prefix": "#hdr",  // prefixではありません
+  //"body": [
+  //"#ifndef ${1:${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}}",
+  //"#define $1",
+  //"$0",
+  //"#endif // $1"
+  //]
+}</code></pre>
+          <figcaption><span class="figure">図4-2</span> 既存のスニペットを呼び出す</figcaption>
+        </figure>
+        <p>図4-2のショートカットキーではC++のスニペットファイルに登録している<code>"include-guard"</code>の名前のスニペットを呼び出します。</p>
+        <p>ここの<code>"name"</code>は<code>"prefix"</code>欄ではありません。</p>
+      </section>
     </section>
   </article>
 </body>
