@@ -367,6 +367,7 @@ if ::= text
 else ::= text</code></pre>
           <figcaption><span class="figure">図3-1</span> EBNF記法</figcaption>
         </figure>
+        <p>下記では正規表現置換後オプションを説明します。</p>
         <section>
           <h4>3-6-1. /upcase</h4>
           <p>マッチした範囲を大文字に変換する。</p>
@@ -386,6 +387,20 @@ else ::= text</code></pre>
         <section>
           <h4>3-6-5. /pascalcase</h4>
           <p>マッチした範囲をパスカルケース形式に変換する。</p>
+        </section>
+        <section>
+          <h4>3-6-6. if</h4>
+          <p><code>${1:+ マッチした場合のテキスト}</code>のように記載するとマッチした場合のテキストを記述できます。</p>
+        </section>
+        <section>
+          <h4>3-6-7. if else</h4>
+          <p><code>${1:? マッチした場合のテキスト: マッチしなかった場合のテキスト}</code>のように記載するとマッチしたかどうかで文字を変えることができます。</p>
+        </section>
+        <section>
+          <h4>3-6-8. else</h4>
+          <p><code>${1:- マッチしなかった場合のテキスト}</code>のように記載するとマッチしなかった場合のテキストを記述できます。<br>
+            <code>${1: マッチしなかった場合のテキスト}</code>の記載でも同じです。
+          </p>
         </section>
       </section>
       <section id="keybinding">
