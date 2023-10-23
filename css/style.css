@@ -26,9 +26,11 @@ table code {
 .figure {
   font-weight: bold;
 }
+
 .figure::before {
   content: "[";
 }
+
 .figure::after {
   content: "]";
 }
@@ -40,10 +42,35 @@ table code {
   left: 0;
   padding-inline: 7px;
   border-radius: 0 0 10px 0;
+  background-color: #fff;
 }
+
 .sidebar ul {
   list-style: none;
   padding-left: 0;
+}
+
+.sidebar li {
+  text-align: center;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.sidebar li:hover a {
+  color: rgb(184, 45, 45);
+}
+
+.sidebar .unview {
+  display: none;
+}
+.sidebar:hover .view {
+  display: none;
+}
+.sidebar:hover .unview {
+  display: block;
 }
 
 /* 備考欄 */
