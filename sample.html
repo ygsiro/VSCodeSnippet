@@ -95,6 +95,18 @@
       <p>上記スニペットはスニペットファイルでなく、ショートカットキーの設定ファイル<code>keybindings.json</code>で設定する。</p>
       <p>Emmetだと間に空白が入ったり改行されると動かないけど、これだと改行や空白を無視してくれる。</p>
     </article>
+
+    <article class="card">
+      <h2>現在の日付と時刻を挿入する。</h2>
+      <ul class="tag">
+        <li><a href="index.html#variable">variable</a></li>
+      </ul>
+      <pre><code class="json">"data time": {
+  "prefix": "YYYY/MM/DD-HH:MM:SS",
+  "body": "$CURRENT_YEAR/$CURRENT_MONTH_NAME_SHORT/$CURRENT_DATE-$CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND"
+}</code></pre>
+      <p>現在の日付を挿入したい時に。順番を入れ替えたり、不要なものを削除して自分用に作り替える。</p>
+    </article>
   </main>
 </body>
 
