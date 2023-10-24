@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="スニペットのサンプル">
+  <title>Snippet Sample</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+  <!-- and it"s easy to individually load additional languages -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+
+  <script>hljs.highlightAll();</script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="desk">
+    <article class="card">
+      <h2>html テンプレート</h2>
+      <ul class="tag">
+        <li><a href="index.html#tabstop">tabstop</a></li>
+        <li><a href="index.html#placeholder">placeholder</a></li>
+        <li>html</li>
+      </ul>
+      <pre data-filename="html.json"><code class="json">"HTML Template": {
+  "body": [
+    "&lt;!doctype html&gt;",
+    "&lt;html lang=\"ja\"&gt;",
+    "  &lt;head&gt;",
+    "    &lt;meta charset=\"UTF-8\"&gt;",
+    "    &lt;meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"&gt;",
+    "    &lt;title&gt;${1:title}&lt;/title&gt;",
+    "  &lt;/head&gt;",
+    "  &lt;body&gt;",
+    "  $0",
+    "  &lt;/body&gt;",
+    "&lt;/html&gt;"
+  ],
+  "isFileTemplate": true,
+  "description": "HTMLの雛形"
+},</code></pre>
+      <p>上記をベースに自分用に改造するのがおすすめ。雛形のためコマンドパレットからスニペットでファイルを満たすコマンドで動かすことを想定しています。</p>
+    </article>
+  </main>
+</body>
+
+</html>

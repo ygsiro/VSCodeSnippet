@@ -84,3 +84,67 @@ table code {
 .variable-list span::before {
   content: "・・・";
 }
+
+pre[data-filename] {
+  margin: 0;
+}
+
+pre[data-filename] code {
+  padding-top: 2em;
+}
+
+pre[data-filename]::before {
+  content: attr(data-filename);
+  background-color: #333;
+  padding-inline: 1em;
+  padding-block: 2px;
+  color: #fff;
+  position: relative;
+  bottom: -18px;
+  left: 1em;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.card {
+  width: 400px;
+  border: solid 1px #333;
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.card p {
+  margin: 1em;
+}
+
+.tag {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.tag li {
+  padding-inline: 5px;
+  margin-left: 3px;
+  border: solid 1px cadetblue;
+  border-radius: 5px;
+}
+.tag li::before {
+  content: " + ";
+}
+
+.tag a {
+  text-decoration: none;
+  color: #333;
+}
+
+.tag a:hover {
+  color: #f33;
+}
+
+.desk {
+  display: flex;
+}
