@@ -35,10 +35,5 @@
 		],
 		"isFileTemplate": true,
 		"description": "HTMLファイルの雛形の例。"
-	},
-	"variable": {
-		"prefix": "var",
-		"scope": "javascript",
-		"body": "${1|const,let|} ${2:var} = ${0: element};"
 	}
 }

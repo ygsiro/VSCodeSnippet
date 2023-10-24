@@ -75,6 +75,26 @@
         タブストップのリンク機能により<code>#define</code>および<code>#endif</code>の行でも正規表現によって変換されたファイル名が挿入される。
       </p>
     </article>
+
+    <article class="card">
+      <h2>html 選択範囲をタグで囲む</h2>
+      <ul class="tag">
+        <li><a href="index.html#tabstop">tabstop</a></li>
+        <li><a href="index.html#placeholder">placeholder</a></li>
+        <li><a href="index.html#variable">variable</a></li>
+        <li>html</li>
+      </ul>
+      <pre data-filename="keybindings.json"><code class="json">{
+  "key": "cmd+k 1",
+  "command": "editor.action.insertSnippet",
+  "when": "editorTextFocus && editorLangId == html",
+  "args": {
+  "snippet": "&lt;${1:span}$0&gt;$TM_SELECTED_TEXT&lt;/$1&gt;"
+  }
+}</code></pre>
+      <p>上記スニペットはスニペットファイルでなく、ショートカットキーの設定ファイル<code>keybindings.json</code>で設定する。</p>
+      <p>Emmetだと間に空白が入ったり改行されると動かないけど、これだと改行や空白を無視してくれる。</p>
+    </article>
   </main>
 </body>
 
