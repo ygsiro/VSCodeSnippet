@@ -44,6 +44,31 @@
 },</code></pre>
       <p>上記をベースに自分用に改造するのがおすすめ。雛形のためコマンドパレットからスニペットでファイルを満たすコマンドで動かすことを想定しています。</p>
     </article>
+
+    <article class="card">
+      <h2>C++ インクルードガード</h2>
+      <ul class="tag">
+        <li><a href="index.html#tabstop">tabstop</a></li>
+        <li><a href="index.html#placeholder">placeholder</a></li>
+        <li><a href="index.html#regex">regex</a></li>
+        <li>C++</li>
+      </ul>
+      <pre data-filename="cpp.json"><code class="json">"include-guard": {
+  "prefix": "#hdr",
+  "body": [
+    "#ifndef ${1:${TM_FILENAME/(?:(\\w+)(\\.)?)/${1:/upcase}${2:+_}/gi}}",
+    "#define $1",
+    "$0",
+    "#endif // $1"
+  ],
+  "description": "インクルードガード"
+}</code></pre>
+      <p>
+        ファイル名を大文字に変換しつつ<code>.</code>を<code>_</code>に変換する正規表現をプレースホルダーの初期値に設定している。
+        <code>#ifndef</code>の行でしか正規表現は使用していませんが、
+        タブストップのリンク機能により<code>#define</code>および<code>#endif</code>の行でも正規表現によって変換されたファイル名が挿入される。
+      </p>
+    </article>
   </main>
 </body>
 

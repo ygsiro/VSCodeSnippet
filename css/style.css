@@ -109,6 +109,7 @@ pre[data-filename]::before {
 .card {
   width: 400px;
   border: solid 1px #333;
+  margin-top: 1em;
 }
 
 .card h2 {
@@ -132,9 +133,6 @@ pre[data-filename]::before {
   border: solid 1px cadetblue;
   border-radius: 5px;
 }
-.tag li::before {
-  content: " + ";
-}
 
 .tag a {
   text-decoration: none;
@@ -143,8 +141,4 @@ pre[data-filename]::before {
 
 .tag a:hover {
   color: #f33;
-}
-
-.desk {
-  display: flex;
 }
